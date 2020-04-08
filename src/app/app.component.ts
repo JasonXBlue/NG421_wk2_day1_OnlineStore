@@ -10,6 +10,10 @@ import { ProductService } from "./services/product.service";
 export class AppComponent {
   products: Array<IProduct>;
 
+  productWasAdded(product: IProduct) {
+    this.productService.addToCart(product);
+  }
+
   constructor(private productService: ProductService) {}
 
   ngOnInit() {
