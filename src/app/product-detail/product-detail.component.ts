@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
+import { IProduct } from "../models/iproduct";
 
 @Component({
   selector: "app-product-detail",
@@ -6,21 +7,12 @@ import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
   styleUrls: ["./product-detail.component.css"],
 })
 export class ProductDetailComponent implements OnInit {
-  @Input() product = {
-    price: "",
-    name: "",
-    description: "",
-    reviews: "",
-    stars: "",
-    imgUrl: "",
-    rating: "",
-  };
-
+  @Input() product: IProduct;
   @Output()
-  productAdded: EventEmitter<{ product }> = new EventEmitter<{ product }>();
+  productAdded = new EventEmitter<IProduct>();
 
   productAdd() {
-    this.product = this.product;
+    this.productAdded.emit(this.product);
   }
 
   constructor() {}

@@ -6,7 +6,7 @@ import { products } from "../products";
   providedIn: "root",
 })
 export class ProductService {
-  shoppingCart: Array<IProduct>;
+  shoppingCart: Array<IProduct> = [];
   products: Array<IProduct>;
 
   constructor() {
